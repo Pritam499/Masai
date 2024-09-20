@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Picture Element</title>
+    <style>
+        /* Optional: Add max-width to img for full responsiveness */
+        img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <picture>
+        <!-- Image for small screens (up to 600px wide) -->
+        <source media="(max-width: 600px)" srcset="https://preview.redd.it/this-is-my-new-tiny-house-you-love-this-if-you-interest-i-v0-zh97zgo2lz2a1.png?width=640&crop=smart&auto=webp&s=1dbfa96b9f5ca18c26851534476745f392188bfc">
+        
+        <!-- Image for medium screens (up to 1200px wide) -->
+        <source media="(max-width: 1200px)" srcset="https://st.hzcdn.com/simgs/pictures/exteriors/nest-in-the-trees-anchor-builders-img~ceb16ac4082f6de2_14-1803-1-e823a50.jpg">
+        
+        <!-- Fallback image for larger screens or unsupported browsers -->
+        <img src="https://images.homify.com/v1469782343/p/photo/image/1602896/_MG_5928.jpg" alt="A small house in a natural setting">
+    </picture>
+
+</body>
+</html>
