@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Logos</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff; 
+        }
+
+        .box {
+            width: 100px; 
+            height: 100px; 
+            border-radius: 20px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff; 
+            overflow: auto; 
+            box-shadow: 0 4px 8px rgba(98, 98, 98, 0.2); 
+            margin: 15px;
+        }
+
+        .box img {
+            max-width: 80%; 
+            max-height: 80%;
+            object-fit: contain; 
+        }
+        
+        @media (max-width: 600px) {
+            .box {
+                width: 80px; 
+                height: 80px; 
+            }
+        }
+
+        @media (max-width: 400px) {
+            .box {
+                width: 60px; 
+                height: 60px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box"><img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/bharatpe_a3a5a3f552.svg" alt="Company 1"></div>
+    <div class="box"><img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/swiggy_bc1b88842e.svg" alt="Company 2"></div>
+    <div class="box"><img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/salesken_baefe048ac.svg" alt="Company 3"></div>
+    <div class="box"><img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/vyapar_3f3770ebb5.svg" alt="Company 4"></div>
+    <div class="box"><img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/capgemini_31a863e94f.svg" alt="Company 5"></div>
+    <div class="box"><img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/simplilearn_f8af8de923.svg" alt="Company 6"></div>
+
+</body>
+</html>
