@@ -11,7 +11,9 @@ const employees = [
   { name: "Alex Johnson", age: 35, department: "IT", salary: 70000 },
 ];
 
-console.log(highestPaid(employees)); // Output: { name: 'Alex Johnson', age: 35, department: 'IT', salary: 70000 }
+console.log(highestPaid(employees));
+
+// Output: { name: 'Alex Johnson', age: 35, department: 'IT', salary: 70000 }
 
 function destructuringToSwap(employees) {
     if (employees.length < 2) {
