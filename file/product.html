@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Product Detail</title>
+</head>
+<body>
+    <header>
+        <h1>Product Detail</h1>
+        <button onclick="window.location.href='index.html'">Back to Products</button>
+    </header>
+
+    <main id="product-detail">
+        <!-- Product detail will be dynamically inserted here -->
+    </main>
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+
+    <div class="product-card">
+        <div class="image-slider">
+            <img id="slider-image" src="image1.jpg" alt="Product Image" />
+            <div class="slider-controls">
+                <button onclick="prevImage()">&#10094;</button>
+                <button onclick="nextImage()">&#10095;</button>
+            </div>
+        </div>
+        <h3>Product Title</h3>
+        <p>Price: $XX.XX</p>
+        <button onclick="addToCart(product)">Add to Cart</button>
+        <a href="product.html?id=${product.id}&name=${encodeURIComponent(product.title)}">View Details</a>
+    </div>
+
+</body>
+
+<script >
+    function setupImageSlider(images) {
+    const sliderContainer = document.getElementById('image-slider');
+    images.forEach((image) => {
+        const imgElement = document.createElement('img');
+        imgElement.src = image;
+        sliderContainer.appendChild(imgElement);
+    });
+}
+</script>
+</html>
