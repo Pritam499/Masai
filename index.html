@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <title>E-Commerce Website</title>
+</head>
+
+<body>
+    <header>
+        <h1>E-Commerce Product Display</h1>
+        <nav>
+            <ul>
+                <li><a href="#filters">Filters</a></li>
+                <li><a href="#sorting-options">Sort</a></li>
+                <li><a href="#product-list">Products</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="filter-sort-container">
+        <aside id="filters">
+            <h2>Filters</h2>
+            <h3>Filter by Category</h3>
+            <div id="category-filters">
+                <label><input type="checkbox" value="Electronics" onclick="filterByCategory()"> Electronics</label><br>
+                <label><input type="checkbox" value="Wearables" onclick="filterByCategory()"> Wearables</label><br>
+                <label><input type="checkbox" value="Home Appliances" onclick="filterByCategory()"> Home Appliances</label><br>
+                <label><input type="checkbox" value="Furniture" onclick="filterByCategory()"> Furniture</label><br>
+                <label><input type="checkbox" value="Home & Kitchen" onclick="filterByCategory()"> Home & Kitchen</label><br>
+                <button onclick="clearFilters()">Clear Filters</button>
+            </div>
+            <button id="apply-filters" onclick="filterByCategory()">Apply Filters</button>
+        </aside>
+
+        <div id="sorting-options">
+            <h3>Sort By</h3>
+            <select id="sort-select" onchange="sortProducts()">
+                <option value="default">Select...</option>
+                <option value="priceAsc">Price: Low to High</option>
+                <option value="priceDesc">Price: High to Low</option>
+                <option value="ratingDesc">Rating: High to Low</option>
+                <option value="titleAsc">Title: A to Z</option>
+                <option value="titleDesc">Title: Z to A</option>
+            </select>
+        </div>
+    </div>
+
+    <main class="product-container">
+        <div id="product-list">
+            <!-- Product cards will be dynamically inserted here -->
+        </div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2024 E-Commerce Website. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <script>
+        // Assuming the products and reviews data is already defined
+        const products = [...]; // Your products data here
+        const reviews = [...]; // Your reviews data here
+
+        // Function to calculate the average rating for a product
+        function calculateAverageRating(productId) {
+            const productReviews = reviews.filter(review => review.productId === productId);
+            const totalRating = productReviews.reduce((sum, review) => sum + review.rating, 0);
+            return productReviews.length ? (totalRating / productReviews.length).toFixed(1) : 0;
+        }
+
+        // Function to render product cards
+        function renderProducts() {
+            const productContainer = document.getElementById('product-list');
+
+            products.forEach(product => {
+                const averageRating = calculateAverageRating(product.id);
+                const productCard = `
+                    <div class="product-card">
+                        <div class="image-slider">
+                            <img src="${product.images[0] || 'https://via.placeholder.com/150'}" alt="${product.title}">
+                            <div class="slider-controls">
+                                <button onclick="prevImage()">&#10094;</button>
+                                <button onclick="nextImage()">&#10095;</button>
+                            </div>
+                        </div>
+                        <h3>${product.title}</h3>
+                        <p>${product.description}</p>
+                        <p>Price: <strong>$${product.price.toFixed(2)}</strong> <span class="strike-price">$${product.strikePrice.toFixed(2)}</span></p>
+                        <p>Average Rating: ${averageRating} ⭐</p>
+                        <button onclick="addToCart(product)">Add to Cart</button>
+                    </div>
+                `;
+                productContainer.innerHTML += productCard;
+            });
+        }
+
+        // Call the function to render products
+        renderProducts();
+    </script>
+</body>
+
+</html>
